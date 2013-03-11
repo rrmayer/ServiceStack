@@ -286,6 +286,15 @@
     <EmbeddedResource Include="FluentValidation\Resources\Messages.resx" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>::Copy the files out to the ClientApps Build Directory
+IF EXIST "$(SolutionDir)..\ss-Builds\$(ProjectName)" rmdir /S /Q "$(SolutionDir)..\Builds\$(ProjectName)"
+
+xcopy "$(TargetDir)*.*" "$(SolutionDir)..\ss-Builds\$(ProjectName)\*.*" /T /E
+xcopy "$(TargetDir)*.dll" "$(SolutionDir)..\ss-Builds\$(ProjectName)\*.dll" /E
+xcopy "$(TargetDir)*.exe" "$(SolutionDir)..\ss-Builds\$(ProjectName)\*.exe" /E
+xcopy "$(TargetDir)*.pdb" "$(SolutionDir)..\ss-Builds\$(ProjectName)\*.pdb" /E</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
