@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 using ServiceStack.Common;
-using ServiceStack.Common.Utils;
 using ServiceStack.Logging;
 using ServiceStack.Text;
 using ServiceStack.Text.Common;
@@ -46,7 +45,7 @@ namespace ServiceStack.ServiceModel.Serialization
                 var propertyParseStringFn = JsvReader.GetParseFn(propertyType);
                 var propertySerializer = new PropertySerializerEntry(propertySetFn, propertyParseStringFn) { PropertyType = propertyType };
 
-                var attr = propertyInfo.FirstAttribute<DataMemberAttribute>();
+                var attr = ServiceStack.Common.ReflectionExtensions.FirstAttribute<DataMemberAttribute>(propertyInfo);
                 if (attr != null && attr.Name != null)
                 {
                     propertySetterMap[attr.Name] = propertySerializer;                    
