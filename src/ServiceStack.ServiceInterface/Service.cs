@@ -66,7 +66,7 @@ namespace ServiceStack.ServiceInterface
         private IDbConnection db;
         public virtual IDbConnection Db
         {
-            get { return db ?? (db = TryResolve<IDbConnectionFactory>().Open()); }
+            get { return db ?? (db = TryResolve<IDbConnectionFactory>().OpenDbConnection()); }
         }
 
         private IRedisClient redis;

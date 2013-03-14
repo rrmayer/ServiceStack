@@ -45,7 +45,7 @@ namespace ServiceStack.ServiceModel.Serialization
                 var propertyParseStringFn = JsvReader.GetParseFn(propertyType);
                 var propertySerializer = new PropertySerializerEntry(propertySetFn, propertyParseStringFn) { PropertyType = propertyType };
 
-                var attr = ServiceStack.Common.ReflectionExtensions.FirstAttribute<DataMemberAttribute>(propertyInfo);
+                var attr = propertyInfo.FirstAttribute<DataMemberAttribute>();
                 if (attr != null && attr.Name != null)
                 {
                     propertySetterMap[attr.Name] = propertySerializer;                    

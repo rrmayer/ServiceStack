@@ -35,27 +35,27 @@ namespace ServiceStack.Common
             return to.PopulateWith(from);
         }
 
-        public static TAttribute FirstAttribute<TAttribute>(this Type type)
-        {
-            return type.FirstAttribute<TAttribute>(true);
-        }
+        //public static TAttribute FirstAttribute<TAttribute>(this Type type)
+        //{
+        //    return type.FirstAttribute<TAttribute>(true);
+        //}
 
-        public static TAttribute FirstAttribute<TAttribute>(this Type type, bool inherit)
-        {
-            var attrs = type.GetCustomAttributes(typeof(TAttribute), inherit);
-            return (TAttribute)(attrs.Length > 0 ? attrs[0] : null);
-        }
+        //public static TAttribute FirstAttribute<TAttribute>(this Type type, bool inherit)
+        //{
+        //    var attrs = type.GetCustomAttributes(typeof(TAttribute), inherit);
+        //    return (TAttribute)(attrs.Length > 0 ? attrs[0] : null);
+        //}
 
-        public static TAttribute FirstAttribute<TAttribute>(this PropertyInfo propertyInfo)
-        {
-            return propertyInfo.FirstAttribute<TAttribute>(true);
-        }
+        //public static TAttribute FirstAttribute<TAttribute>(this PropertyInfo propertyInfo)
+        //{
+        //    return propertyInfo.FirstAttribute<TAttribute>(true);
+        //}
 
-        public static TAttribute FirstAttribute<TAttribute>(this PropertyInfo propertyInfo, bool inherit)
-        {
-            var attrs = propertyInfo.GetCustomAttributes(typeof(TAttribute), inherit);
-            return (TAttribute)(attrs.Length > 0 ? attrs[0] : null);
-        }
+        //public static TAttribute FirstAttribute<TAttribute>(this PropertyInfo propertyInfo, bool inherit)
+        //{
+        //    var attrs = propertyInfo.GetCustomAttributes(typeof(TAttribute), inherit);
+        //    return (TAttribute)(attrs.Length > 0 ? attrs[0] : null);
+        //}
 
         public static bool IsGenericType(this Type type)
         {

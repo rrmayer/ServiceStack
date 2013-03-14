@@ -74,12 +74,6 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ServiceStack.OrmLite">
-      <HintPath>..\..\lib\ServiceStack.OrmLite.dll</HintPath>
-    </Reference>
-    <Reference Include="ServiceStack.Text">
-      <HintPath>..\..\lib\ServiceStack.Text.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -121,7 +115,12 @@
     <Compile Include="Auth\IOAuthTokens.cs" />
     <Compile Include="Auth\IRedisClientFacade.cs" />
     <Compile Include="Auth\IUserAuthRepository.cs" />
-    <Compile Include="Auth\OAuthProvider.cs" />
+    <Compile Include="Auth\OAuthAuthorizer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Auth\OAuthProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Auth\TwitterAuthProvider.cs" />
     <Compile Include="Auth\UnAssignRolesService.cs" />
     <Compile Include="Cors\EnableCors.cs" />
@@ -133,10 +132,8 @@
     <Compile Include="Admin\RequestLogsService.cs" />
     <Compile Include="RequiredRoleAttribute.cs" />
     <Compile Include="Auth\RegistrationService.cs" />
-    <Compile Include="Auth\OAuthAuthorizer.cs" />
     <Compile Include="Auth\AuthProvider.cs" />
     <Compile Include="Auth\AuthUserSession.cs" />
-    <Compile Include="Auth\OrmLiteAuthRepository.cs" />
     <Compile Include="Auth\RedisAuthRepository.cs" />
     <Compile Include="Auth\SaltedHash.cs" />
     <Compile Include="Auth\UserAuth.cs" />
@@ -265,6 +262,10 @@
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\ServiceStack.Text-latest\src\ServiceStack.Text\ServiceStack.Text.csproj">
+      <Project>{579b3fdb-cdad-44e1-8417-885c38e49a0e}</Project>
+      <Name>ServiceStack.Text</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ServiceStack.Common\ServiceStack.Common.csproj">
       <Project>{982416DB-C143-4028-A0C3-CF41892D18D3}</Project>
       <Name>ServiceStack.Common</Name>
