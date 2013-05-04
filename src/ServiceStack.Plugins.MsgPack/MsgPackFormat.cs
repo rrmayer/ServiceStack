@@ -10,6 +10,7 @@ using ServiceStack.Common.Web;
 using ServiceStack.ServiceHost;
 using ServiceStack.Text;
 using ServiceStack.WebHost.Endpoints;
+using CollectionExtensions = ServiceStack.Text.CollectionExtensions;
 
 namespace ServiceStack.Plugins.MsgPack
 {
