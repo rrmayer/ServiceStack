@@ -81,11 +81,11 @@ namespace ServiceStack.ServiceInterface
             }
         }
 
-        private IDbConnection db;
-        public virtual IDbConnection Db
-        {
-            get { return db ?? (db = TryResolve<IDbConnectionFactory>().Open()); }
-        }
+        //private IDbConnection db;
+        //public virtual IDbConnection Db
+        //{
+        //    get { return db ?? (db = TryResolve<IDbConnectionFactory>().Open()); }
+        //}
 
         private IRedisClient redis;
         public virtual IRedisClient Redis
@@ -144,8 +144,8 @@ namespace ServiceStack.ServiceInterface
 
         public virtual void Dispose()
         {
-            if (db != null)
-                db.Dispose();
+            //if (db != null)
+            //    db.Dispose();
             if (redis != null)
                 redis.Dispose();
             if (messageProducer != null)
