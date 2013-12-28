@@ -46,12 +46,20 @@
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>Bin\Release\ServiceStack.Common.XML</DocumentationFile>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ECB|AnyCPU'">
+    <OutputPath>..\..\Binaries-SL5\</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT</DefineConstants>
+    <DocumentationFile>Bin\Release\ServiceStack.Common.XML</DocumentationFile>
+    <Optimize>true</Optimize>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <NoConfig>true</NoConfig>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />
-    <Reference Include="ServiceStack.Text, Version=3.9.50.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\lib\sl5\ServiceStack.Text.dll</HintPath>
-    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Windows" />
     <Reference Include="system" />
@@ -441,8 +449,12 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\ServiceStack.Text\src\ServiceStack.Text.SL5\ServiceStack.Text.SL5.csproj">
+      <Project>{cc38d2cc-5e47-4218-9994-5ddee36820fa}</Project>
+      <Name>ServiceStack.Text.SL5</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ServiceStack.Interfaces.SL5\ServiceStack.Interfaces.SL5.csproj">
-      <Project>{36E79FA9-13BB-47BA-B7E8-2A45B8FEBE01}</Project>
+      <Project>{36e79fa9-13bb-47ba-b7e8-2a45b8febe01}</Project>
       <Name>ServiceStack.Interfaces.SL5</Name>
     </ProjectReference>
   </ItemGroup>
@@ -452,7 +464,7 @@
       <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
         <SilverlightProjectProperties />
       </FlavorProperties>
-      <UserProperties ProjectLinkerExcludeFilter="\\?desktop(\\.*)?$;\\?silverlight(\\.*)?$;\.desktop;\.silverlight;\.xaml;^service references(\\.*)?$;\.clientconfig;^web references(\\.*)?$" ProjectLinkReference="982416db-c143-4028-a0c3-cf41892d18d3" />
+      <UserProperties ProjectLinkReference="982416db-c143-4028-a0c3-cf41892d18d3" ProjectLinkerExcludeFilter="\\?desktop(\\.*)?$;\\?silverlight(\\.*)?$;\.desktop;\.silverlight;\.xaml;^service references(\\.*)?$;\.clientconfig;^web references(\\.*)?$" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
